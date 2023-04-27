@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"math/rand"
 	"net"
 	"os"
 	"strconv"
@@ -22,6 +23,13 @@ func (s *userServer) DummyList(ctx context.Context, in *user.DummyListRequest) (
 		{Id: 2, Name: "dummy2"},
 	}
 	return &user.DummyListResponse{Users: users}, nil
+}
+
+func (s *userServer) Create(ctx context.Context, in *user.CreateReqeust) (*user.CreateResponse, error) {
+	name := in.User.GetName()
+	id := rand.Int63()
+	u := user.User{Id: id, Name: name}
+	return &user.CreateResponse{User: &u}, nil
 }
 
 func main() {
