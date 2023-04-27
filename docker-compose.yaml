@@ -5,9 +5,9 @@ services:
       dockerfile: front/Dockerfile
     environment:
       PORT: 8000
-      BOOKING_PORT: 8001
-      ROOM_PORT: 8002
-      USER_PORT: 8003
+      BOOKING: booking:8001
+      ROOM: room:8002
+      USER: user:8003
     ports:
     - 8000:8000
   booking:
