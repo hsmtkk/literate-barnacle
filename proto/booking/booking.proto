@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/hsmtkk/literate-barnacle/back/proto/booking";
+option go_package = "github.com/hsmtkk/literate-barnacle/proto/booking";
 
 package booking;
 
