@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "github.com/hsmtkk/literate-barnacle/proto/user";
+
+package user;
+
+service UserService {
+  rpc DummyList(DummyListRequest) returns (DummyListResponse){}
+  rpc Create(CreateReqeust) returns (CreateResponse){}
+}
+
+message NewUser {
+  string name = 1;
+}
+
+message User {
+  int64 id = 1;
+  string name = 2;
+}
+
+message DummyListRequest {
+}
+
+message DummyListResponse {
+  repeated User users = 1;
+}
+
+message CreateReqeust {
+  NewUser user = 1;
+}
+
+message CreateResponse {
+  User user = 1;
+}

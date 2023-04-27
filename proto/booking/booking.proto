@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "github.com/hsmtkk/literate-barnacle/proto/booking";
+
+package booking;
+
+service BookingService {
+  rpc DummyList(DummyListRequest) returns (DummyListResponse){}
+  rpc Create(CreateReqeust) returns (CreateResponse){}
+}
+
+message NewBooking {
+  int64 user_id = 1;
+  int64 room_id = 2;
+  int64 reserved_num = 3;
+  int64 start_date_time = 4;
+  int64 end_date_time = 5;
+}
+
+message Booking {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 room_id = 3;
+  int64 reserved_num = 4;
+  int64 start_date_time = 5;
+  int64 end_date_time = 6;  
+}
+
+message DummyListRequest {
+}
+
+message DummyListResponse {
+  repeated Booking bookings = 1;
+}
+
+message CreateReqeust {
+  NewBooking booking = 1;
+}
+
+message CreateResponse {
+  Booking booking = 1;
+}
