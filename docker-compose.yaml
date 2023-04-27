@@ -1,0 +1,27 @@
+version: "3"
+services:
+  front:
+    build:
+      dockerfile: front/Dockerfile
+    environment:
+      PORT: 8000
+      BOOKING_PORT: 8001
+      ROOM_PORT: 8002
+      USER_PORT: 8003
+    ports:
+    - 8000:8000
+  booking:
+    build:
+      dockerfile: back/server/booking/Dockerfile
+    environment:
+      PORT: 8001
+  room:
+    build:
+      dockerfile: back/server/room/Dockerfile
+    environment:
+      PORT: 8002
+  user:
+    build:
+      dockerfile: back/server/user/Dockerfile
+    environment:
+      PORT: 8003
