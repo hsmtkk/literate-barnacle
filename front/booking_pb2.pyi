@@ -13,13 +13,13 @@ class Booking(_message.Message):
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     START_DATE_TIME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    end_date_time: int
+    end_date_time: str
     id: int
     reserved_num: int
     room_id: int
-    start_date_time: int
+    start_date_time: str
     user_id: int
-    def __init__(self, id: _Optional[int] = ..., user_id: _Optional[int] = ..., room_id: _Optional[int] = ..., reserved_num: _Optional[int] = ..., start_date_time: _Optional[int] = ..., end_date_time: _Optional[int] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., user_id: _Optional[int] = ..., room_id: _Optional[int] = ..., reserved_num: _Optional[int] = ..., start_date_time: _Optional[str] = ..., end_date_time: _Optional[str] = ...) -> None: ...
 
 class CreateReqeust(_message.Message):
     __slots__ = ["booking"]
@@ -50,9 +50,9 @@ class NewBooking(_message.Message):
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     START_DATE_TIME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    end_date_time: int
+    end_date_time: str
     reserved_num: int
     room_id: int
-    start_date_time: int
+    start_date_time: str
     user_id: int
-    def __init__(self, user_id: _Optional[int] = ..., room_id: _Optional[int] = ..., reserved_num: _Optional[int] = ..., start_date_time: _Optional[int] = ..., end_date_time: _Optional[int] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[int] = ..., room_id: _Optional[int] = ..., reserved_num: _Optional[int] = ..., start_date_time: _Optional[str] = ..., end_date_time: _Optional[str] = ...) -> None: ...

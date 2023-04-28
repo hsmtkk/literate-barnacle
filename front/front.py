@@ -40,14 +40,14 @@ def show_bookings_page() -> None:
             day=date.day,
             hour=start_time.hour,
             minute=start_time.minute,
-        )
+        ).isoformat()
         end_date_time = datetime.datetime(
             year=date.year,
             month=date.month,
             day=date.day,
             hour=end_time.hour,
             minute=end_time.minute,
-        )
+        ).isoformat()
 
     if submit_button:
         with grpc.insecure_channel(booking_service) as channel:
@@ -58,8 +58,8 @@ def show_bookings_page() -> None:
                         user_id=user_id,
                         room_id=room_id,
                         reserved_num=reserved_num,
-                        start_date_time=int(start_date_time.timestamp()),
-                        end_date_time=int(end_date_time.timestamp()),
+                        start_date_time=start_date_time,
+                        end_date_time=end_date_time,
                     )
                 )
             )

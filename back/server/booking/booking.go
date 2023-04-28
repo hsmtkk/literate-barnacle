@@ -19,8 +19,8 @@ type bookingServer struct {
 
 func (s *bookingServer) DummyList(ctx context.Context, in *booking.DummyListRequest) (*booking.DummyListResponse, error) {
 	bookings := []*booking.Booking{
-		{Id: 1, UserId: 1, RoomId: 1, StartDateTime: 1, EndDateTime: 1},
-		{Id: 2, UserId: 2, RoomId: 2, StartDateTime: 2, EndDateTime: 2},
+		{Id: 1, UserId: 1, RoomId: 1, StartDateTime: "2023-04-28T15:19:46", EndDateTime: "2023-04-28T15:19:46"},
+		{Id: 2, UserId: 2, RoomId: 2, StartDateTime: "2023-04-28T15:19:46", EndDateTime: "2023-04-28T15:19:46"},
 	}
 	return &booking.DummyListResponse{Bookings: bookings}, nil
 }
