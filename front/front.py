@@ -11,8 +11,16 @@ import user_pb2_grpc
 def run():
     page = st.sidebar.selectbox("Choose your page", ["bookings", "rooms", "users"])
     st.title("APIテスト画面 ユーザー")
-    handlers = {"rooms": show_rooms_page, "users": show_users_page}
+    handlers = {
+        "bookings": show_bookings_page,
+        "rooms": show_rooms_page,
+        "users": show_users_page,
+    }
     handlers[page]()
+
+
+def show_bookings_page() -> None:
+    pass
 
 
 def show_rooms_page() -> None:
