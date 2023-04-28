@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nroom.proto\x12\x04room\"\x17\n\x07NewRoom\x12\x0c\n\x04name\x18\x01 \x01(\t\" \n\x04Room\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x12\n\x10\x44ummyListRequest\".\n\x11\x44ummyListResponse\x12\x19\n\x05rooms\x18\x01 \x03(\x0b\x32\n.room.Room\",\n\rCreateReqeust\x12\x1b\n\x04room\x18\x01 \x01(\x0b\x32\r.room.NewRoom\"*\n\x0e\x43reateResponse\x12\x18\n\x04room\x18\x01 \x01(\x0b\x32\n.room.Room2\x84\x01\n\x0bRoomService\x12>\n\tDummyList\x12\x16.room.DummyListRequest\x1a\x17.room.DummyListResponse\"\x00\x12\x35\n\x06\x43reate\x12\x13.room.CreateReqeust\x1a\x14.room.CreateResponse\"\x00\x42\x30Z.github.com/hsmtkk/literate-barnacle/proto/roomb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nroom.proto\x12\x04room\")\n\x07NewRoom\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61pacity\x18\x02 \x01(\x03\"2\n\x04Room\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63\x61pacity\x18\x03 \x01(\x03\"\x12\n\x10\x44ummyListRequest\".\n\x11\x44ummyListResponse\x12\x19\n\x05rooms\x18\x01 \x03(\x0b\x32\n.room.Room\",\n\rCreateReqeust\x12\x1b\n\x04room\x18\x01 \x01(\x0b\x32\r.room.NewRoom\"*\n\x0e\x43reateResponse\x12\x18\n\x04room\x18\x01 \x01(\x0b\x32\n.room.Room2\x84\x01\n\x0bRoomService\x12>\n\tDummyList\x12\x16.room.DummyListRequest\x1a\x17.room.DummyListResponse\"\x00\x12\x35\n\x06\x43reate\x12\x13.room.CreateReqeust\x1a\x14.room.CreateResponse\"\x00\x42\x30Z.github.com/hsmtkk/literate-barnacle/proto/roomb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'room_pb2', globals())
@@ -22,17 +22,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z.github.com/hsmtkk/literate-barnacle/proto/room'
   _NEWROOM._serialized_start=20
-  _NEWROOM._serialized_end=43
-  _ROOM._serialized_start=45
-  _ROOM._serialized_end=77
-  _DUMMYLISTREQUEST._serialized_start=79
-  _DUMMYLISTREQUEST._serialized_end=97
-  _DUMMYLISTRESPONSE._serialized_start=99
-  _DUMMYLISTRESPONSE._serialized_end=145
-  _CREATEREQEUST._serialized_start=147
-  _CREATEREQEUST._serialized_end=191
-  _CREATERESPONSE._serialized_start=193
-  _CREATERESPONSE._serialized_end=235
-  _ROOMSERVICE._serialized_start=238
-  _ROOMSERVICE._serialized_end=370
+  _NEWROOM._serialized_end=61
+  _ROOM._serialized_start=63
+  _ROOM._serialized_end=113
+  _DUMMYLISTREQUEST._serialized_start=115
+  _DUMMYLISTREQUEST._serialized_end=133
+  _DUMMYLISTRESPONSE._serialized_start=135
+  _DUMMYLISTRESPONSE._serialized_end=181
+  _CREATEREQEUST._serialized_start=183
+  _CREATEREQEUST._serialized_end=227
+  _CREATERESPONSE._serialized_start=229
+  _CREATERESPONSE._serialized_end=271
+  _ROOMSERVICE._serialized_start=274
+  _ROOMSERVICE._serialized_end=406
 # @@protoc_insertion_point(module_scope)

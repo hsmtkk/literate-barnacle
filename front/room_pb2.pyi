@@ -28,15 +28,19 @@ class DummyListResponse(_message.Message):
     def __init__(self, rooms: _Optional[_Iterable[_Union[Room, _Mapping]]] = ...) -> None: ...
 
 class NewRoom(_message.Message):
-    __slots__ = ["name"]
+    __slots__ = ["capacity", "name"]
+    CAPACITY_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    capacity: int
     name: str
-    def __init__(self, name: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., capacity: _Optional[int] = ...) -> None: ...
 
 class Room(_message.Message):
-    __slots__ = ["id", "name"]
+    __slots__ = ["capacity", "id", "name"]
+    CAPACITY_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    capacity: int
     id: int
     name: str
-    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., capacity: _Optional[int] = ...) -> None: ...
