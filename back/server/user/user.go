@@ -26,8 +26,8 @@ func (s *userServer) DummyList(ctx context.Context, in *user.DummyListRequest) (
 }
 
 func (s *userServer) Create(ctx context.Context, in *user.CreateReqeust) (*user.CreateResponse, error) {
-	name := in.User.GetName()
 	id := rand.Int63()
+	name := in.User.GetName()
 	u := user.User{Id: id, Name: name}
 	return &user.CreateResponse{User: &u}, nil
 }

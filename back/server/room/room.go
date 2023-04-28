@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"math/rand"
 	"net"
 	"os"
 	"strconv"
@@ -22,6 +23,13 @@ func (s *roomServer) DummyList(ctx context.Context, in *room.DummyListRequest) (
 		{Id: 2, Name: "dummy2"},
 	}
 	return &room.DummyListResponse{Rooms: rooms}, nil
+}
+
+func (s *roomServer) Create(ctx context.Context, in *room.CreateReqeust) (*room.CreateResponse, error) {
+	id := rand.Int63()
+	name := in.Room.GetName()
+	newRoom := room.Room{Id: id, Name: name}
+	return &room.CreateResponse{Room: &newRoom}, nil
 }
 
 func main() {

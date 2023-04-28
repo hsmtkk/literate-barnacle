@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"math/rand"
 	"net"
 	"os"
 	"strconv"
@@ -22,6 +23,16 @@ func (s *bookingServer) DummyList(ctx context.Context, in *booking.DummyListRequ
 		{Id: 2, UserId: 2, RoomId: 2, StartDateTime: 2, EndDateTime: 2},
 	}
 	return &booking.DummyListResponse{Bookings: bookings}, nil
+}
+
+func (s *bookingServer) Create(ctx context.Context, in *booking.CreateReqeust) (*booking.CreateResponse, error) {
+	id := rand.Int63()
+	userID := in.Booking.GetUserId()
+	roomID := in.Booking.GetRoomId()
+	startDateTime := in.Booking.GetStartDateTime()
+	endDateTime := in.Booking.GetEndDateTime()
+	newBooking := booking.Booking{Id: id, UserId: userID, RoomId: roomID, StartDateTime: startDateTime, EndDateTime: endDateTime}
+	return &booking.CreateResponse{Booking: &newBooking}, nil
 }
 
 func main() {
