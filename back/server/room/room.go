@@ -28,7 +28,8 @@ func (s *roomServer) DummyList(ctx context.Context, in *room.DummyListRequest) (
 func (s *roomServer) Create(ctx context.Context, in *room.CreateReqeust) (*room.CreateResponse, error) {
 	id := rand.Int63()
 	name := in.Room.GetName()
-	newRoom := room.Room{Id: id, Name: name}
+	capacity := in.Room.GetCapacity()
+	newRoom := room.Room{Id: id, Name: name, Capacity: capacity}
 	return &room.CreateResponse{Room: &newRoom}, nil
 }
 
