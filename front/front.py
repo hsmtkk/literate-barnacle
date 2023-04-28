@@ -1,5 +1,8 @@
+import datetime
 import os
 
+import booking_pb2
+import booking_pb2_grpc
 import grpc
 import room_pb2
 import room_pb2_grpc
@@ -20,7 +23,47 @@ def run():
 
 
 def show_bookings_page() -> None:
-    pass
+    booking_service = os.environ["BOOKING"]
+
+    with st.form(key="booking"):
+        user_id: int = st.number_input("")
+        room_id: int = st.number_input("")
+        reserved_num: int = st.number_input("予約人数", step=1)
+        date: datetime.date = st.date_input("日付", min_value=datetime.date.today())
+        start_time = st.time_input("開始時刻", value=datetime.time(hour=9, minute=0))
+        end_time = st.time_input("終了時刻", value=datetime.time(hour=20, minute=0))
+        submit_button = st.form_submit_button(label="送信")
+
+        start_date_time = datetime.datetime(
+            year=date.year,
+            month=date.month,
+            day=date.day,
+            hour=start_time.hour,
+            minute=start_time.minute,
+        )
+        end_date_time = datetime.datetime(
+            year=date.year,
+            month=date.month,
+            day=date.day,
+            hour=end_time.hour,
+            minute=end_time.minute,
+        )
+
+    if submit_button:
+        with grpc.insecure_channel(booking_service) as channel:
+            stub = booking_pb2_grpc.BookingServiceStub(channel)
+            response = stub.Create(
+                booking_pb2.CreateReqeust(
+                    booking=booking_pb2.NewBooking(
+                        user_id=user_id,
+                        room_id=room_id,
+                        reserved_num=reserved_num,
+                        start_date_time=int(start_date_time.timestamp()),
+                        end_date_time=int(end_date_time.timestamp()),
+                    )
+                )
+            )
+        st.write(response)
 
 
 def show_rooms_page() -> None:
